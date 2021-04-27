@@ -1,6 +1,7 @@
 import React from "react";
 
 class StartGame extends React.Component {
+  // page d'acceuil avec nom et button start
   render() {
     return (
       <div className='game'>

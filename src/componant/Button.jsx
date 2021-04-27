@@ -1,5 +1,6 @@
 import React from "react";
 
+// props button give et stop
 
 class Button extends React.Component {
   render() {

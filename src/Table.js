@@ -5,6 +5,8 @@ import Button from './componant/Button.jsx'
 import Cartes from "./views/Cartes";
 import Game from './views/StartGame.jsx'
 
+// toutes les cartes
+ 
 const cardArray = [
   "KS", "QS", "JS", "AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "0S",
   "KD", "QD", "JD", "AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "0D",
@@ -16,11 +18,16 @@ const cardArray = [
 
 // let rndNum = 0
 // let temp = ""
+
+// let pour la carte et sa valeur
+
 let rndCarteTemp = "";
 let rndNumTemp = 0;
 class Table extends React.Component {
   constructor() {
     super();
+
+// state (compteur pour le dealer, le joueur, liste des cartes sur le tapis,boolean de debut de jeu et victoire)
 
     this.state = {
       counterPlayer: 0,
@@ -32,6 +39,7 @@ class Table extends React.Component {
       nameOfWinner: ""
     }
   }
+//methode pour randomiser le tirage des cartes 
 
   rndCarte() {
   
@@ -44,6 +52,8 @@ class Table extends React.Component {
 
     return rndCarteTemp
   }
+
+// methode pour le bouton stop
 
   onClickStop = () => {
     const cardSelectedDealer = this.rndCarte()
@@ -107,6 +117,8 @@ class Table extends React.Component {
     })
   }
 
+// methode pour le bouton give
+
   onClickGive = () => {
     const cardSelected = this.rndCarte()
     const valueCarte = this.transformCardIntoInt(cardSelected.split("")[0])
@@ -118,6 +130,7 @@ class Table extends React.Component {
     })
   }
 
+  // mettre les cartes qui sont en lettres en chiffre
   transformCardIntoInt(cardValue) {
     if (cardValue === "K" || cardValue === "Q" || cardValue === "J" || cardValue === "A" || cardValue === "0") {
       cardValue = "10"
@@ -125,6 +138,8 @@ class Table extends React.Component {
 
     return parseInt(cardValue)
   }
+
+// methode de début de jeu ( initialisation de partie)
 
   startGame = () => {
     const cardSelected = this.rndCarte()
@@ -143,6 +158,8 @@ class Table extends React.Component {
       startGame: true
     })
   }
+
+  // render de base de la page 
 
   render() {
     if (this.state.startGame === false) {

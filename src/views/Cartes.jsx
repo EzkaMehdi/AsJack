@@ -3,7 +3,7 @@ import React from "react";
 
 class Cartes extends React.Component {
 
-
+// visuel des cartes 
   render() {
     return (
       <div className="cartes">
